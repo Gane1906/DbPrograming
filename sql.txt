@@ -1,0 +1,176 @@
+SSMS - SQL Sever Management System 
+SQL - Structured Query Language
+Database - Its an storage where we can able to store Tables, Functions, Stored Procedures
+
+Primary Key - its an unique key and cant be duplicated
+
+Create Database Example;
+Use Example;
+
+CRUD:-
+
+Create:- 
+
+Create table Demo(
+Id int identity(1,1) PK, 
+Name Varchar(20),
+Email Varchar(30),
+MobileNumber Varchar(10)
+);
+
+Insert into Demo(Name,Email,MobileNumber) values(‘Manish’,’mark@gmail.com’,’9876543210’);
+Retrieve:-
+
+Select * from Demo;
+
+Select * from Demo where id in (1,2,3);
+
+Select * from Demo where id=1 or Name=‘Manish’; 
+Select * from Demo where id=1 and Name=‘Manish’; 
+
+Update:-
+
+Update Demo set Email=‘mmkr7111@gmail.com’ where id=1;
+
+Delete:-
+
+Delete from Demo where id=1;
+
+
+--------------------------------------------
+https://www.w3schools.com/sql/sql_datatypes.asp
+
+https://www.w3schools.com/sql/sql_constraints.asp
+
+https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/
+
+https://www.sqlservertutorial.net/sql-server-basics/
+
+------------------------------------------------------------
+
+what is db?
+what is dbms
+what is rdbms
+sql ,nosql difference.
+configure the db.
+how memory allocation hapens for table
+how memory allocation happens for query.
+how query executes.
+what is data types
+constraints
+ddl dml dcl tcl dql.
+limiting rows.
+
+https://www.youtube.com/watch?v=9sYgbn68lZ4
+
+https://www.youtube.com/watch?v=hcEzN8DuKZg
+
+Joins: https://www.youtube.com/watch?v=q5TosPcfyCw&t=30s
+
+Subquery: https://www.youtube.com/watch?v=cRkuJ56RgZY&t=358s
+
+https://www.youtube.com/watch?v=j3qNaqqntZw
+
+CTE:https://www.javatpoint.com/common-table-expression-in-sql-server
+
+Normalization:https://www.youtube.com/watch?v=0bUpWZKauYY
+
+https://www.youtube.com/watch?v=MHCBLS0ZgIE&t=180s
+
+functions:https://www.c-sharpcorner.com/UploadFile/b926a6/function-operation-in-sql-database/
+
+user defined functions:https://www.youtube.com/watch?v=9y9GVHHUHTM&list=PLKpO3lQqxJ6arlN_Nh6TX85CMnKrBv4lm&index=36.
+
+stored Procedures:https://www.sqlshack.com/creating-using-crud-stored-procedures/ 
+
+Indexes:https://www.c-sharpcorner.com/UploadFile/8af593/index-in-sql-server/
+
+Views:https://www.c-sharpcorner.com/UploadFile/f0b2ed/views-in-sql-server/
+
+https://www.youtube.com/watch?v=XiUkKumsD3Y&list=PLKpO3lQqxJ6arlN_Nh6TX85CMnKrBv4lm&index=19
+
+https://www.youtube.com/watch?v=MbJdbslaNFo&list=PLKpO3lQqxJ6arlN_Nh6TX85CMnKrBv4lm&index=37
+
+cursors:https://www.youtube.com/watch?v=bKsguquWVyw&list=PLKpO3lQqxJ6arlN_Nh6TX85CMnKrBv4lm&index=33
+
+https://www.youtube.com/watch?v=tL_sFHMiGgU&list=PLKpO3lQqxJ6arlN_Nh6TX85CMnKrBv4lm&index=39
+
+https://www.youtube.com/watch?v=GbOAlBdm0jc&list=PLKpO3lQqxJ6arlN_Nh6TX85CMnKrBv4lm&index=40
+
+https://www.youtube.com/watch?v=lOc84OgQAh8&list=PLKpO3lQqxJ6arlN_Nh6TX85CMnKrBv4lm&index=41
+
+---------------------------------------------------------------------------------------------------
+Select the names and ages of all employees who are between the ages of 25 and 35:
+Select the names and salaries of all employees who make more than $60,000 and work in the "IT" department:
+Select the total salary of all employees:
+Select the names of all employees who do not have a salary value:
+Select the names and ages of all employees, sorted by age in ascending order:
+Select the top 5 departments with the highest total salary:
+Select the names of all employees who have a name that contains t
+---------------------------------------------
+Example: Suppose you have a table called "Customers" with columns such as "CustomerID," "CustomerName," "Phone," and "Email." To achieve 1NF, you ensure that each column contains atomic (indivisible) values and there are no repeating groups. So, you might split this table into two tables: "Customers" and "ContactInfo," where the "ContactInfo" table includes columns like "CustomerID," "Phone," and "Email."
+Example: Continuing from the previous example, let's say the "Customers" table also contains the "OrderID" and "ProductName" columns, indicating the products ordered by each customer. To achieve 2NF, you identify functional dependencies and separate them into multiple tables. In this case, you can create an "Orders" table with columns like "OrderID," "CustomerID," and "ProductID," and a "Products" table with columns like "ProductID" and "ProductName."
+Third Normal Form (3NF):
+Example: Building upon the previous example, suppose the "Orders" table also includes a column called "ProductPrice," representing the price of each product in an order. To achieve 3NF, you eliminate transitive dependencies. In this case, you can create a separate "OrderDetails" table with columns like "OrderID," "ProductID," and "Quantity," and move the "ProductPrice" column to the "Products" table.
+-------------------------------
+
+
+
+The "Inventory" table stores repeated information about products and their attributes, leading to increased storage requirements and difficulties in maintaining 
+accurate product information.Objective: Normalize the "Inventory" table by creating separate tables for products and their attributes and establish relationships 
+between them. Columns in the "Inventory" table include: InventoryID, ProductID, Quantity, LocationID.
+
+The "Products" table contains multiple columns that depend on each other, resulting in data anomalies and difficulties in maintaining data integrity.
+Objective: Normalize the "Products" table by creating separate tables for product attributes and establish relationships between them. Columns in the 
+"Products" table include: ProductID, ProductName, CategoryID, SupplierID, UnitPrice.
+
+The "Orders" table stores both customer details and order details in a single table,leading to data duplication and difficulties in managing and updating 
+customer information.Objective: Normalize the database schema by separating customer details into a separate "Customers" table and establish a relationship 
+with the "Orders" table. Columns in the "Orders" table include: OrderID, CustomerID, OrderDate, TotalAmount. 
+
+The "Customers" table contains duplicate entries for customers, resulting in data inconsistencies and difficulties in maintaining accurate customer information.
+Objective: Normalize the "Customers" table by creating a separate "CustomerDetails" table and establish a relationship with the "Orders" table. Columns in the 
+"Customers" table include: CustomerID, FirstName, LastName, Email, Phone.
+
+-----------------------
+
+CTE:
+retrieving all employees and their respective managers in an organizational hierarchy.
+Use a CTE to perform the recursive calculations and generate the desired results. For example, calculating the factorial of a number.
+Use CTEs to define the datasets and perform comparisons between them. For example, identifying differences in data between the "OldData" and "NewData" tables.
+
+----------------------------------
+
+table called Employees with columns: employee_id, employee_name, department, manager_name, manager_department.
+
+In a healthcare application, you could use a join to retrieve the patient information and medical history for a specific appointment. 
+For example, you could join the appointments table with the patients table and the medical history table on the patient ID to get the patient's name, 
+age, medical conditions, and previous treatments.
+
+
+Create a function that takes a product ID as input and returns the product name. If the product ID does not exist in the 'Products' table, return a 
+message saying that the product does not exist.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
